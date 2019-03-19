@@ -1,0 +1,67 @@
+{
+    "url": "localhost/numbers.php/-1",
+    "response": "минус один",
+    "method": "GET"
+}
+{
+    "url": "localhost/numbers.php/7777777777",
+    "response": "семь миллиардов семьсот семьдесят семь миллионов семьсот семьдесят семь тысяч семьсот семьдесят семь",
+    "method": "GET"
+}
+{
+    "url": "localhost/equations.php?a=1&b=1&c=-4",
+    "response": [
+        1.5615528128088303,
+        -2.5615528128088303
+    ],
+    "method": "GET"
+}
+{
+    "url": "localhost/equations.php?a=1&b=1&c=1",
+    "response": [
+        null
+    ],
+    "method": "GET"
+}
+{
+    "url": "localhost/equations.php?a=1&b=6&c=9",
+    "response": [
+        -3
+    ],
+    "method": "GET"
+}
+{
+    "url": "localhost/weekdays.php/?date=19.03.19",
+    "response": "Tuesday",
+    "method": "GET"
+}
+{
+    "url": "localhost/weekdays.php/?date=20.03.19",
+    "response": "Wednesday",
+    "method": "GET"
+}
+{
+    "url": "localhost/fibonacci.php/-1",
+    "response": null,
+    "method": "GET"
+}
+{
+    "url": "localhost/fibonacci.php/4",
+    "response": 3,
+    "method": "GET"
+}
+{
+    "url": "localhost/regions.php/72",
+    "response": "Тюменская область",
+    "method": "GET"
+}
+{
+    "url": "localhost/regions.php/05",
+    "response": "Республика Дагестан",
+    "method": "GET"
+}
+{
+    "url": "localhost/regions.php/74",
+    "response": "Челябинская область",
+    "method": "GET"
+}
