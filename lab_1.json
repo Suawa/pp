@@ -1,67 +1,55 @@
 {
-    "url": "localhost/numbers.php/-1",
+    "url": "localhost/lab_1/numbers/-1",
     "response": "минус один",
     "method": "GET"
 }
 {
-    "url": "localhost/numbers.php/7777777777",
-    "response": "семь миллиардов семьсот семьдесят семь миллионов семьсот семьдесят семь тысяч семьсот семьдесят семь",
+    "url": "localhost/lab_1/numbers/777",
+    "response": "семьсот семьдесят семь",
     "method": "GET"
 }
 {
-    "url": "localhost/equations.php?a=1&b=1&c=-4",
-    "response": [
-        1.5615528128088303,
-        -2.5615528128088303
-    ],
+    "url": "localhost/lab_1/weekdays?date=12.12.12",
+    "response": "Wednesday",
     "method": "GET"
 }
 {
-    "url": "localhost/equations.php?a=1&b=1&c=1",
+    "url": "localhost/lab_1/weekdays?date=12.12.15",
+    "response": "Saturday",
+    "method": "GET"
+}
+{
+    "url": "localhost/lab_1/equations?a=1&b=2&c=3",
     "response": [
         null
     ],
     "method": "GET"
 }
 {
-    "url": "localhost/equations.php?a=1&b=6&c=9",
+    "url": "localhost/lab_1/equations?a=1&b=2&c=-3",
     "response": [
+        1,
         -3
     ],
     "method": "GET"
 }
 {
-    "url": "localhost/weekdays.php/?date=19.03.19",
-    "response": "Tuesday",
+    "url": "localhost/lab_1/fibonacci/1",
+    "response": 1,
     "method": "GET"
 }
 {
-    "url": "localhost/weekdays.php/?date=20.03.19",
-    "response": "Wednesday",
+    "url": "localhost/lab_1/fibonacci/50",
+    "response": 12586269025,
     "method": "GET"
 }
 {
-    "url": "localhost/fibonacci.php/-1",
-    "response": null,
-    "method": "GET"
-}
-{
-    "url": "localhost/fibonacci.php/4",
-    "response": 3,
-    "method": "GET"
-}
-{
-    "url": "localhost/regions.php/72",
+    "url": "localhost/lab_1/regions/72",
     "response": "Тюменская область",
     "method": "GET"
 }
 {
-    "url": "localhost/regions.php/05",
-    "response": "Республика Дагестан",
-    "method": "GET"
-}
-{
-    "url": "localhost/regions.php/74",
-    "response": "Челябинская область",
+    "url": "localhost/lab_1/regions/777",
+    "response": "г. Москва",
     "method": "GET"
 }
