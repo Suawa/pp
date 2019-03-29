@@ -1,0 +1,149 @@
+{
+    "url": "localhost/lab_2/clients",
+    "response": [
+        {
+            "id_client": "1",
+            "name": "Ivanov"
+        },
+        {
+            "id_client": "2",
+            "name": "Petrov"
+        },
+        {
+            "id_client": "3",
+            "name": "Semenov"
+        }
+    ],
+    "method": "GET"
+}
+{
+    "url": "localhost/lab_2/clients?name=Sidorov",
+    "response": {},
+    "method": "POST"
+}
+{
+    "url": "localhost/lab_2/clients?id=3",
+    "response": {},
+    "method": "DELETE"
+}
+{
+    "url": "localhost/lab_2/clients",
+    "response": [
+        {
+            "id_client": "1",
+            "name": "Ivanov"
+        },
+        {
+            "id_client": "2",
+            "name": "Petrov"
+        },
+        {
+            "id_client": "4",
+            "name": "Sidorov"
+        }
+    ],
+    "method": "GET"
+}
+{
+    "url": "localhost/lab_2/services",
+    "response": [
+        {
+            "id_service": "1",
+            "name": "Такси (трезвый водитель)",
+            "price": "1500"
+        },
+        {
+            "id_service": "2",
+            "name": "Такси (нет)",
+            "price": "150"
+        },
+        {
+            "id_service": "3",
+            "name": "Нарезка хлеба",
+            "price": "10"
+        }
+    ],
+    "method": "GET"
+}
+{
+    "url": "localhost/lab_2/requests",
+    "response": [
+        {
+            "id_request": "1",
+            "client_id": "1",
+            "name": "Ivanov"
+        },
+        {
+            "id_request": "2",
+            "client_id": "2",
+            "name": "Petrov"
+        }
+    ],
+    "method": "GET"
+}
+{
+    "url": "localhost/lab_2/requests?id=4",
+    "response": {},
+    "method": "POST"
+}
+{
+    "url": "localhost/lab_2/requests?request_id=3&service_id=3&count=5",
+    "response": {},
+    "method": "POST"
+}
+{
+    "url": "localhost/lab_2/requests?request_id=3&service_id=1&count=1",
+    "response": {},
+    "method": "POST"
+}
+{
+    "url": "localhost/lab_2/requests?id=3",
+    "response": {
+        "info": {
+            "id_request": "3",
+            "client_id": "4",
+            "name": "Sidorov"
+        },
+        "services": [
+            {
+                "id_service": "1",
+                "name": "Такси (трезвый водитель)",
+                "count": "1"
+            },
+            {
+                "id_service": "3",
+                "name": "Нарезка хлеба",
+                "count": "5"
+            }
+        ]
+    },
+    "method": "GET"
+}
+{
+    "url": "localhost/lab_2/services?id=1&name=%D0%9C%D0%B5%D0%B4%D0%B2%D0%B5%D0%B6%D1%8C%D1%8F%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0&price=300",
+    "response": {},
+    "method": "PUT"
+}
+{
+    "url": "localhost/lab_2/requests?id=3",
+    "response": {
+        "info": {
+            "id_request": "3",
+            "client_id": "4",
+            "name": "Sidorov"
+        },
+        "services": [
+            {
+                "id_service": "1",
+                "name": "Медвежья услуга",
+                "count": "1"
+            },
+            {
+                "id_service": "3",
+                "name": "Нарезка хлеба",
+                "count": "5"
+            }
+        ]
+    },
+    "method": "GET"
+}

@@ -1,0 +1,55 @@
+<?php
+
+header('Content-Type: application/json');
+
+require_once "db.php";
+require_once "_example.php";
+
+$method = $_SERVER['REQUEST_METHOD'];
+
+$result;
+switch ($method)
+{
+	case 'GET':
+		if($id = $_GET['id'])
+		{
+			$result = mysqli_fetch_all(mysqli_query($db, "CALL GetService($id)"), MYSQLI_ASSOC);
+		}
+		else
+		{
+			$result = mysqli_fetch_all(mysqli_query($db, "CALL GetAllServices()"), MYSQLI_ASSOC);
+		}
+		break;
+
+	case 'POST':
+		if(($name = $_GET['name']) && ($price = $_GET['price']))
+		{
+			mysqli_query($db, "CALL AddService('$name', $price)");
+		}
+		break;
+
+	case 'PUT':
+		if(($id = $_GET['id']) && ($name = $_GET['name']) && ($price = $_GET['price']))
+		{
+			mysqli_query($db, "CALL EditService($id, '$name', $price)");
+		}
+		break;
+
+	case 'DELETE':
+		if($id = $_GET['id'])
+		{
+			mysqli_query($db, "CALL DeleteService($id)");
+		}
+		break;
+
+	default:		
+		break;
+}
+mysqli_close($db);
+
+$response = json_encode(Obj($result), JSON_UNESCAPED_UNICODE);
+echo $response;
+
+SaveExample("../lab_2.json", $response);
+
+?>

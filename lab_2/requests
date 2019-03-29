@@ -1,0 +1,77 @@
+<?php
+
+header('Content-Type: application/json');
+
+require_once "db.php";
+require_once "_example.php";
+
+$method = $_SERVER['REQUEST_METHOD'];
+
+$result;
+switch ($method)
+{
+	case 'GET':
+		if($id = $_GET['id'])
+		{
+			$data = array();
+			mysqli_multi_query($db, "CALL GetRequest($id); CALL GetRequestDetails($id);");
+			do
+		    {
+		        if ($r = mysqli_store_result($db)) 
+		       	{
+		       		$data[] = mysqli_fetch_all($r, MYSQLI_ASSOC);
+		            mysqli_free_result($r);
+		        }
+		    }
+		    while (mysqli_next_result($db));
+
+		    $result = array(
+		    	'info' => $data[0][0],
+		    	'services' => $data[1]);
+		}
+		else
+		{
+			$result = mysqli_fetch_all(mysqli_query($db, "CALL GetAllRequests()"), MYSQLI_ASSOC);
+		}
+		break;
+
+	case 'POST':
+		if($id = $_GET['id'])
+		{
+			mysqli_query($db, "CALL AddRequest($id)");
+		}
+		if (($request_id = $_GET['request_id']) && ($service_id = $_GET['service_id']) && ($count = $_GET['count']))
+		{
+			mysqli_query($db, "CALL AddRequestDetails($request_id, $service_id, $count)");
+		}
+		break;
+
+	case 'PUT':
+		if(($id = $_GET['id']) && ($client_id = $_GET['client_id']))
+		{
+			mysqli_query($db, "CALL EditRequest($id, $client_id)");
+		}
+		break;
+
+	case 'DELETE':
+		if($id = $_GET['id'])
+		{
+			mysqli_query($db, "CALL DeleteRequest($id)");
+		}
+		elseif(($request_id = $_GET['request_id']) && ($service_id = $_GET['service_id']))
+		{
+			mysqli_query($db, "CALL DeleteRequestDetails($request_id, $service_id)");
+		}
+		break;
+
+	default:		
+		break;
+}
+mysqli_close($db);
+
+$response = json_encode(Obj($result), JSON_UNESCAPED_UNICODE);
+echo $response;
+
+SaveExample("../lab_2.json", $response);
+
+?>
